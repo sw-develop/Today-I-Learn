@@ -6,12 +6,16 @@
 
 테이블을 매번 join해서 조회할 때 성능 이슈가 발생한다면, 반정규화 / Redis 캐시 적용 / 분산 캐시 방안을 추가로 적용해볼 수 있다.
 
+<br>
+
 ## 📌 상황
 - 진행한 업무 중 ‘약국 조회 API 구현’을 진행하게 되었다. 검색 조건에 해당하는 약국 데이터를 반환하는 것이었다.
 
 ![image](https://user-images.githubusercontent.com/69254943/179789544-5ab5d347-44f1-41c8-bec4-693e52b96d28.png)
 
 - 관련 테이블은 위의 사진과 같이 구성되어있고, 조회 시 전제는 특정 제휴기관과 제휴된(중개 테이블에 데이터가 존재하는) 약국을 대상으로 검색 조건을 적용해 반환한다는 것이다.
+
+<br>
 
 ### 기존 조회 코드 구성
 ```java
@@ -41,6 +45,8 @@ public Page<PharmApiSearchResDto> getPharmBySearch(PharmApiSearchReqDto reqDto) 
 ### ▶️ 방안1 - 반정규화 & 1번의 쿼리로 조회하기
 - 회사에서는 방안1로 우선 개선을 하였다.
 
+<br>
+
 ### 반정규화
 - 테이블 간의 join을 줄이기 위해 약국 조회 시 필요한 약국 테이블의 컬럼들과 제휴기관 테이블의 컬럼을 제휴약국 테이블이 포함하도록 반정규화한다.
 - 약국 테이블, 제휴기관 테이블과의 join을 없앰 → 제휴약국 테이블만으로 조회 가능하도록 수정
@@ -50,6 +56,8 @@ public Page<PharmApiSearchResDto> getPharmBySearch(PharmApiSearchReqDto reqDto) 
 
 - 참고
     - [dataonair - 반정규화와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?mod=document&uid=333) → 반정규화 기법 중 ‘중복컬럼 추가’를 사용함
+
+<br>
 
 ### 1번의 쿼리로 줄이기
 ```java
@@ -88,10 +96,14 @@ else //일반조회
         }
     ```
 
+<br>
+
 ### ▶️ 방안2 - 방안1 + Redis 캐시 적용
 - 개선 방안1로 수정했는데 성능 이슈가 생긴다면, Redis 캐시 사용을 고려해보자
 - Redis는 자주 변경되지 않고 조회가 빈번한 대상을 캐시에 저장해 사용하는 것이므로, 약국 조회 시 가장 빈번하게 조회될 제휴약국 테이블(위에서 중개 테이블)을 Redis에 저장해두는 것이다.
 - 스프링에서는 Redis를 쉽게 추가해 사용(cacheable, cacheput, cache 삭제 등)할 수 있으므로 해당 방안은 추후에 성능 이슈가 생겼을 때 수정해도 충분하다고 판단했다.
+
+<br>
 
 ### ▶️ 방안3 - 방안2 + 분산 캐시
 - 만약 개선 방안2까지 했는데도 성능 이슈가 생긴다면, 이번에는 분산 캐시로 처리하는 것을 고려해보자
