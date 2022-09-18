@@ -32,3 +32,8 @@
 - [통합테스트시 인증정보 주입](https://github.com/sw-develop/Today-I-Learn/blob/main/spring-security/%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%8B%9C_%EC%9D%B8%EC%A6%9D%EC%A0%95%EB%B3%B4%EC%A3%BC%EC%9E%85.md)
 
 <br>
+
+## spring
+- [Spring의 Custom Annotation을 만들어 코드의 중복 제거하기](https://github.com/sw-develop/Today-I-Learn/blob/main/spring/custom_annotation%EC%9D%84_%EB%A7%8C%EB%93%A4%EC%96%B4_%EC%BD%94%EB%93%9C%EC%9D%98_%EC%A4%91%EB%B3%B5%EC%A0%9C%EA%B1%B0.md#-%EC%83%81%ED%99%A9)
+
+<br>

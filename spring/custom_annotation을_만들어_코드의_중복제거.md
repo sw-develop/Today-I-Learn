@@ -12,13 +12,10 @@
 
 # 📌 개선
 
-<br>
-
 ### ▶️ Custom Annotation을 생성해 AOP로 처리하기
 
 - API 호출 횟수 체크에 대한 커스텀 어노테이션을 생성해 코드의 중복을 제거하고 관심사를 분리시켰다.
 - 해당 어노테이션이 여러 곳에 쓰이고, 코드가 간결해지기 때문에 해당 방안으로 구성하기로 하였다.
-
 - 적용한 코드는 다음과 같다.
 
 ```java
@@ -55,11 +52,12 @@ public class ApiCallAspect {
 }
 
 // 어노테이션 사용 예시
+@RestController
 public class Controller {
 	
 	@Get("/get")
 	@ApiCallAvailable //어노테이션 사용
-	public ResponseEntity<?> void get() {
+	public ResponseEntity<?> get() {
 		return ResponseEntity.ok(); 
 	}
 }
