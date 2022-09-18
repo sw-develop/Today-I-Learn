@@ -1,3 +1,14 @@
+# Pre-Authentication을 사용해 사용자 인증 구현하기
+
+<br>
+
+# 📌 상황
+
+- Spring Boot 기반의 서버에 사용자 인증 기능을 추가하는 과정이 필요했고, 이를 위해 Spring을 기반으로 Filter를 정의해 인증과 권한을 수행할 수 있는 Spring Security 기술을 채택했다.
+- [여기](https://github.com/sw-develop/Today-I-Learn/blob/main/spring-security/%EC%99%B8%EB%B6%80_%EC%82%AC%EC%9A%A9%EC%9E%90_%EC%9D%B8%EC%A6%9D%EC%9D%84_%EC%9C%84%ED%95%9C_%EC%9D%B8%EC%A6%9D%ED%82%A4_%EB%B0%9C%EA%B8%89_%EC%84%A4%EA%B3%84.md)의 4단계인 사용자 인증 방식에 대한 내용이다.
+
+<br>
+
 # 📌 구현을 위해 필요한 Spring Security 사전 지식 정리
 
 <br>
@@ -85,7 +96,7 @@ Spring Security에서 제공하는 인증 방식은 여러 개가 존재하고 �
 
 - Spring Security의 Pre-Authentication 인증 방식을 사용했다.
 - Spring Security에서 공식으로 제공해주는 인증 방식으로, 기존에 회사 서비스에 적용되어 있던 Spring Security의 Username/Password 인증 방식과 유사한 구조였다.
-- 또한 아이디와 비밀번호로 인증하는 방식 대신에 Header로 전달된 AppId와 API Key 값으로 사용자 인증을 해야했던 개발 상황에 가장 적합하여 사용하였다.
+- 또한 아이디와 비밀번호로 인증하는 방식 대신에 Header로 전달된 인증키(AppId와 API Key) 값으로 사용자 인증을 해야했던 개발 상황에 가장 적합하여 사용하였다.
 
 <br>
 
