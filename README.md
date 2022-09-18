@@ -27,6 +27,7 @@
 <br>
 
 ## spring-security
+- [외부 사용자 인증을 위한 인증키 발급 설계하기](https://github.com/sw-develop/Today-I-Learn/blob/main/spring-security/%EC%99%B8%EB%B6%80_%EC%82%AC%EC%9A%A9%EC%9E%90_%EC%9D%B8%EC%A6%9D%EC%9D%84_%EC%9C%84%ED%95%9C_%EC%9D%B8%EC%A6%9D%ED%82%A4_%EB%B0%9C%EA%B8%89_%EC%84%A4%EA%B3%84.md)
 - [Pre-Authentication을 사용해 사용자 인증 구현하기](https://github.com/sw-develop/Today-I-Learn/blob/main/spring-security/Pre-Authentication%EC%9D%84_%EC%82%AC%EC%9A%A9%ED%95%B4_%EC%82%AC%EC%9A%A9%EC%9E%90_%EC%9D%B8%EC%A6%9D_%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0.md)
 - [통합테스트시 인증정보 주입](https://github.com/sw-develop/Today-I-Learn/blob/main/spring-security/%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%8B%9C_%EC%9D%B8%EC%A6%9D%EC%A0%95%EB%B3%B4%EC%A3%BC%EC%9E%85.md)
 
