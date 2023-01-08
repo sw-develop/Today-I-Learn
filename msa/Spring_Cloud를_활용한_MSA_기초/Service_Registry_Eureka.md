@@ -30,7 +30,7 @@
     - eureka.instance.lease-renewal-interval-in-seconds : 30(default)
 - 서버 종료 시 Eureka Server에 자신의 상태 변경(DOWN) 혹은 자신의 목록을 삭제한다.
 - Eureka 상에 등록된 이름은 'spring.application.name'
-- 구현
+- 구현 ⭐️
     - @EnableEurekaServer / @EnableEurekaClient를 통해 서버 구축, 클라이언트 Enable이 가능하다.
     - @EnableEurekaClient를 붙인 Application은 Eureka 서버로부터 남의 주소를 가져오는 역할과 자신의 주소를 등록하는 역할 모두 수행 가능하다.
     - EurekaClient가 Eureka 서버에 자신을 등록할 때 'spring.application.name'이 이름으로 사용된다. (application.yml에서 설정)
